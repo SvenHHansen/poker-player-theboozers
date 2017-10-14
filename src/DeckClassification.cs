@@ -39,7 +39,7 @@ namespace Nancy.Simple
 
         public bool IsThreeOfAKind(IList<Card> deck)
         {
-            return false;
+			return deck.GroupBy(card => card.rank).Any(group => group.Count() == 3);
         }
 
         public bool IsTwoPair(IList<Card> deck)

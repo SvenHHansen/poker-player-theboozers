@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Nancy.Simple
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTestOnePair
     {
         [TestMethod]
         public void TestHasOnePairWithNoCards()

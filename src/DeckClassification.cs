@@ -57,7 +57,7 @@ namespace Nancy.Simple
             {
                 foreach (var possibleStraight in possibleStraights)
                 {
-                    if (deck.SequenceEqual(possibleStraight))
+                    if (deck.Select(c=>c.rank).SequenceEqual(possibleStraight.Select(c=>c.rank)))
                     {
                         return true;    // found straight!
                     }

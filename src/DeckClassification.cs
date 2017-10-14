@@ -83,7 +83,7 @@ namespace Nancy.Simple
 
         public static bool IsThreeOfAKind(IList<Card> deck)
         {
-			return deck.GroupBy(card => card.Rank).Any(group => group.Count() == 3);
+			return deck.GroupBy(card => card.Rank).Any(group => group.Count() >= 3);
         }
 
         public static bool IsTwoPair(IList<Card> deck)

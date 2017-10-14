@@ -81,6 +81,8 @@
     <Compile Include="HoleCard.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="CommunityCard.cs" />
+    <Compile Include="SuitEnum.cs" />
+    <Compile Include="RankEnum.cs" />
     <Compile Include="ReadData.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -82,6 +82,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="CommunityCard.cs" />
     <Compile Include="ReadData.cs" />
+    <Compile Include="Bet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

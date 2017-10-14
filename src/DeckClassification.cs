@@ -5,59 +5,59 @@ using System.Text;
 
 namespace Nancy.Simple
 {
-    public class DeckClassification
+    public static class DeckClassification
     {
-        public bool IsRoyalFlush(IList<Card> deck)
+        public static bool IsRoyalFlush(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsStraightFlush(IList<Card> deck)
+        public static bool IsStraightFlush(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsFourOfAKind(IList<Card> deck)
+        public static bool IsFourOfAKind(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsFullHouse(IList<Card> deck)
+        public static bool IsFullHouse(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsFlush(IList<Card> deck)
+        public static bool IsFlush(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsStraight(IList<Card> deck)
+        public static bool IsStraight(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsThreeOfAKind(IList<Card> deck)
+        public static bool IsThreeOfAKind(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsTwoPair(IList<Card> deck)
+        public static bool IsTwoPair(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsOnePair(IList<Card> deck)
+        public static bool IsOnePair(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsHighestCard(IList<Card> deck)
+        public static bool IsHighestCard(IList<Card> deck)
         {
             return true;
         }
 
-        public HandEnum GetHand(IList<Card> deck)
+        public static HandEnum GetHand(IList<Card> deck)
         {
             var hand = HandEnum.HighCard;
 

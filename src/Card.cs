@@ -3,8 +3,11 @@ using System.Collections.Generic;
 
 namespace Nancy.Simple
 {
-    	public class Card
+    public class Card
 	{
+		public Card()
+		{ 
+		}
 
         public Card(CommunityCard communityCard)
         {

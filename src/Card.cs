@@ -23,6 +23,7 @@ namespace Nancy.Simple
         {
             rank = holdCard.rank;
             suit = holdCard.suit;
+
             Rank = GetRankEnum(rank);
             Suit = GetSuitEnum(suit);     
         }

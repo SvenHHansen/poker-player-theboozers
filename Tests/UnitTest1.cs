@@ -62,5 +62,80 @@ namespace Nancy.Simple
 
             Assert.IsTrue(result);
         }
+
+        [TestMethod]
+        public void TestHasTwoPairWithNoCards()
+        {
+            var dc = new DeckClassification();
+
+            var cardList = new List<Card>();
+
+            var result = dc.IsTwoPair(cardList);
+
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void TestHasTwoPairWithOnePairCardsAndOthers()
+        {
+            var dc = new DeckClassification();
+
+            var cardList = new List<Card>();
+            cardList.Add(new Card() { rank = "A", suit = "hearts" });
+            cardList.Add(new Card() { rank = "A", suit = "clubs" });
+            cardList.Add(new Card() { rank = "D", suit = "hearts" });
+            cardList.Add(new Card() { rank = "10", suit = "hearts" });
+
+            var result = dc.IsTwoPair(cardList);
+
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void TestHasTwoPairWithOnePairCards()
+        {
+            var dc = new DeckClassification();
+
+            var cardList = new List<Card>();
+            cardList.Add(new Card() { rank = "A", suit = "hearts" });
+            cardList.Add(new Card() { rank = "A", suit = "hearts" });
+
+            var result = dc.IsTwoPair(cardList);
+
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void TestHasTwoPairWithTwoPairCards()
+        {
+            var dc = new DeckClassification();
+
+            var cardList = new List<Card>();
+            cardList.Add(new Card() { rank = "A", suit = "hearts" });
+            cardList.Add(new Card() { rank = "A", suit = "clubs" });
+            cardList.Add(new Card() { rank = "10", suit = "hearts" });
+            cardList.Add(new Card() { rank = "10", suit = "clubs" });
+
+            var result = dc.IsTwoPair(cardList);
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void TestHasTwoPairWithTwoPairCardsAndOthers()
+        {
+            var dc = new DeckClassification();
+
+            var cardList = new List<Card>();
+            cardList.Add(new Card() { rank = "A", suit = "hearts" });
+            cardList.Add(new Card() { rank = "A", suit = "clubs" });
+            cardList.Add(new Card() { rank = "10", suit = "hearts" });
+            cardList.Add(new Card() { rank = "10", suit = "clubs" });
+            cardList.Add(new Card() { rank = "9", suit = "pik" });
+
+            var result = dc.IsTwoPair(cardList);
+
+            Assert.IsTrue(result);
+        }
     }
 }

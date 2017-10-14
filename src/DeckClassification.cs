@@ -36,6 +36,10 @@ namespace Nancy.Simple
         {
             var possibleStraights = new List<List<Card>>()
             {
+                new List<Card> { new Card() { rank = "2" }, new Card() { rank = "3" }, new Card() { rank = "4" }, new Card() { rank = "5" }, new Card() { rank = "6" }},
+                new List<Card> { new Card() { rank = "3" }, new Card() { rank = "4" }, new Card() { rank = "5" }, new Card() { rank = "6" }, new Card() { rank = "7" }},
+                new List<Card> { new Card() { rank = "4" }, new Card() { rank = "5" }, new Card() { rank = "6" }, new Card() { rank = "7" }, new Card() { rank = "8" }},
+                new List<Card> { new Card() { rank = "5" }, new Card() { rank = "6" }, new Card() { rank = "7" }, new Card() { rank = "8" }, new Card() { rank = "9" }},
                 new List<Card> { new Card() { rank = "6" }, new Card() { rank = "7" }, new Card() { rank = "8" }, new Card() { rank = "9" }, new Card() { rank = "10" }},
                 new List<Card> { new Card() { rank = "7" }, new Card() { rank = "8" }, new Card() { rank = "9" }, new Card() { rank = "10" }, new Card() { rank = "J" }, },
                 new List<Card> { new Card() { rank = "8" }, new Card() { rank = "9" }, new Card() { rank = "10" }, new Card() { rank = "J" }, new Card() { rank = "Q" }, },

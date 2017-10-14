@@ -36,49 +36,46 @@ namespace Nancy.Simple
 
         public static bool IsStraight(IList<Card> deck)
         {
-            var possibleStraights = new List<List<Card>>()
-            {
-                new List<Card> { new Card() { Rank = RankEnum.N2 }, new Card() { Rank = RankEnum.N3 }, new Card() { Rank = RankEnum.N4 }, new Card() { Rank = RankEnum.N5 }, new Card() { Rank = RankEnum.N6 }},
-                new List<Card> { new Card() { Rank = RankEnum.N3 }, new Card() { Rank = RankEnum.N4 }, new Card() { Rank = RankEnum.N5 }, new Card() { Rank = RankEnum.N6 }, new Card() { Rank = RankEnum.N7 }},
-                new List<Card> { new Card() { Rank = RankEnum.N4 }, new Card() { Rank = RankEnum.N5 }, new Card() { Rank = RankEnum.N6 }, new Card() { Rank = RankEnum.N7 }, new Card() { Rank = RankEnum.N8 }},
-                new List<Card> { new Card() { Rank = RankEnum.N5 }, new Card() { Rank = RankEnum.N6 }, new Card() { Rank = RankEnum.N7 }, new Card() { Rank = RankEnum.N8 }, new Card() { Rank = RankEnum.N9 }},
-                new List<Card> { new Card() { Rank = RankEnum.N6 }, new Card() { Rank = RankEnum.N7 }, new Card() { Rank = RankEnum.N8 }, new Card() { Rank = RankEnum.N9 }, new Card() { Rank = RankEnum.N10 }},
-                new List<Card> { new Card() { Rank = RankEnum.N7 }, new Card() { Rank = RankEnum.N8 }, new Card() { Rank = RankEnum.N9 }, new Card() { Rank = RankEnum.N10 }, new Card() { Rank = RankEnum.J } },
-                new List<Card> { new Card() { Rank = RankEnum.N8 }, new Card() { Rank = RankEnum.N9 }, new Card() { Rank = RankEnum.N10 }, new Card() { Rank = RankEnum.J }, new Card() { Rank = RankEnum.Q } },
-                new List<Card> { new Card() { Rank = RankEnum.N9 }, new Card() { Rank = RankEnum.N10 }, new Card() { Rank = RankEnum.J }, new Card() { Rank = RankEnum.Q }, new Card() { Rank = RankEnum.K } },
-                new List<Card> { new Card() { Rank = RankEnum.N10 }, new Card() { Rank = RankEnum.J }, new Card() { Rank = RankEnum.Q }, new Card() { Rank = RankEnum.K }, new Card() { Rank = RankEnum.A }}
-            };
+            var sortedCards = deck.OrderBy(x => x.Rank).ToList();
+            var straight = false;
 
-            if (deck.Count < 5)
+            while (sortedCards.Count() >= 5)
             {
-                return false;
+                straight = CheckStraight(sortedCards);
+
+                if(straight)
+                {
+                    break;
+                }
+                else
+                {
+                    sortedCards.RemoveAt(0);
+                }
+            
             }
 
-            if (deck.Count == 5)
+            return straight;
+        }
+
+        private static bool CheckStraight(IList<Card> sortedCards)
+        {
+            var straight = true;
+
+            for (int i = 0; i < 5; i++)
             {
-                foreach (var possibleStraight in possibleStraights)
+                if(GetEnumValue(sortedCards[i].Rank) != GetEnumValue(sortedCards[i+1].Rank)+1)
                 {
-                    if (deck.Select(c=>c.Rank).SequenceEqual(possibleStraight.Select(c=>c.Rank)))
-                    {
-                        return true;     //found straight!
-                    }
+                    straight = false;
+                    break;
                 }
             }
 
-            if (deck.Count == 6)
-            {
-                return IsStraight(deck.Skip(0).Take(5).ToArray())
-                    || IsStraight(deck.Skip(1).Take(5).ToArray());
-            }
+            return straight;
+        }
 
-            if (deck.Count == 7)
-            {
-                return IsStraight(deck.Skip(0).Take(5).ToArray())
-                    || IsStraight(deck.Skip(1).Take(5).ToArray())
-                    || IsStraight(deck.Skip(2).Take(5).ToArray());
-            }
-
-            return false;
+        private static int GetEnumValue(RankEnum rank)
+        {
+            return (int)rank;
         }
 
         public static bool IsThreeOfAKind(IList<Card> deck)

@@ -31,7 +31,7 @@ namespace Nancy.Simple
 
         public static bool IsFlush(IList<Card> deck)
         {
-			return deck.GroupBy(card => card.Suit).Count() == 1;
+			return deck.GroupBy(card => card.Suit).Any(group => group.Count() >= 5);
         }
 
         public static bool IsStraight(IList<Card> deck)

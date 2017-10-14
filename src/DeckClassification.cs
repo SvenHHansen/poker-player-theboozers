@@ -34,6 +34,43 @@ namespace Nancy.Simple
 
         public bool IsStraight(IList<Card> deck)
         {
+            var possibleStraights = new List<List<Card>>()
+            {
+                new List<Card> { new Card() { rank = "6" }, new Card() { rank = "7" }, new Card() { rank = "8" }, new Card() { rank = "9" }, new Card() { rank = "10" }},
+                new List<Card> { new Card() { rank = "7" }, new Card() { rank = "8" }, new Card() { rank = "9" }, new Card() { rank = "10" }, new Card() { rank = "J" }, },
+                new List<Card> { new Card() { rank = "8" }, new Card() { rank = "9" }, new Card() { rank = "10" }, new Card() { rank = "J" }, new Card() { rank = "Q" }, },
+                new List<Card> { new Card() { rank = "9" }, new Card() { rank = "10" }, new Card() { rank = "J" }, new Card() { rank = "Q" }, new Card() { rank = "K" }, },
+                new List<Card> { new Card() { rank = "10" }, new Card() { rank = "J" }, new Card() { rank = "Q" }, new Card() { rank = "K" }, new Card() { rank = "A" }},
+            };
+            if (deck.Count < 5)
+            {
+                return false;
+            }
+
+            if (deck.Count == 5)
+            {
+                foreach (var possibleStraight in possibleStraights)
+                {
+                    if (deck.SequenceEqual(possibleStraight))
+                    {
+                        return true;    // found straight!
+                    }
+                }
+            }
+
+            if (deck.Count == 6)
+            {
+                return IsStraight(deck.Skip(0).Take(5).ToArray())
+                    || IsStraight(deck.Skip(1).Take(5).ToArray());
+            }
+
+            if (deck.Count == 7)
+            {
+                return IsStraight(deck.Skip(0).Take(5).ToArray())
+                    || IsStraight(deck.Skip(1).Take(5).ToArray())
+                    || IsStraight(deck.Skip(2).Take(5).ToArray());
+            }
+
             return false;
         }
 

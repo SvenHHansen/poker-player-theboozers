@@ -26,7 +26,7 @@ namespace Nancy.Simple
 
         public static bool IsFullHouse(IList<Card> deck)
         {
-			return IsTwoPair(deck) && IsThreeOfAKind(deck);
+			return IsOnePair(deck) && IsThreeOfAKind(deck);
         }
 
         public static bool IsFlush(IList<Card> deck)

@@ -6,15 +6,15 @@ namespace Nancy.Simple
     [TestClass]
     public class UnitTestOnePair
     {
-        //[TestMethod]
-        //public void TestHasOnePairWithNoCards()
-        //{
-        //    var cardList = new List<Card>();
+        [TestMethod]
+        public void TestHasOnePairWithNoCards()
+        {
+            var cardList = new List<Card>();
 
-        //    var result = DeckClassification.IsOnePair(cardList);
+            var result = DeckClassification.IsOnePair(cardList);
 
-        //    Assert.IsFalse(result);
-        //}
+            Assert.IsFalse(result);
+        }
 
         //[TestMethod]
         //public void TestHasOnePairWithOneAceAndOneKing()

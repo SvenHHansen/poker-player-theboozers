@@ -15,8 +15,16 @@ namespace Nancy.Simple
 
         public static bool IsStraightFlush(IList<Card> deck)
         {
-			bool isStraightFlush = IsFlush(deck) && IsStraight(deck);
-			return false;
+            var isStraightFlush = false;
+
+         var possibleStraightFlush =    deck.GroupBy(card => card.Suit).FirstOrDefault(group => group.Count() >= 5);
+
+            if(possibleStraightFlush != null)
+            {
+                isStraightFlush = IsStraight(deck.Where(x=>x.Suit == possibleStraightFlush.Key).ToList());
+            }
+
+            return isStraightFlush;
         }
 
         public static bool IsFourOfAKind(IList<Card> deck)

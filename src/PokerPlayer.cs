@@ -17,7 +17,7 @@ namespace Nancy.Simple
 
             if(GetActualCards(gameStateSerialized).Count() < 6)
             {
-                return gameStateSerialized.current_buy_in;
+                return gameStateSerialized.minimum_raise;
             }
             else
             {

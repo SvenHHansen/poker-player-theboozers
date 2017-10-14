@@ -11,9 +11,7 @@ namespace Nancy.Simple
 
         public Card ConvertToCard()
         {
-            var card = new Card();
-            card.rank = rank;
-            card.suit = suit;
+            var card = new Card(this);
             return card;
         }
 	}

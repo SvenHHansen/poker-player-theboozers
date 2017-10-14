@@ -36,35 +36,34 @@ namespace Nancy.Simple
 
         public static bool IsStraight(IList<Card> deck)
         {
-            return false;
+            var possibleStraights = new List<List<Card>>()
+            {
+                new List<Card> { new Card() { Rank = RankEnum.N2 }, new Card() { Rank = RankEnum.N3 }, new Card() { Rank = RankEnum.N4 }, new Card() { Rank = RankEnum.N5 }, new Card() { Rank = RankEnum.N6 }},
+                new List<Card> { new Card() { Rank = RankEnum.N3 }, new Card() { Rank = RankEnum.N4 }, new Card() { Rank = RankEnum.N5 }, new Card() { Rank = RankEnum.N6 }, new Card() { Rank = RankEnum.N7 }},
+                new List<Card> { new Card() { Rank = RankEnum.N4 }, new Card() { Rank = RankEnum.N5 }, new Card() { Rank = RankEnum.N6 }, new Card() { Rank = RankEnum.N7 }, new Card() { Rank = RankEnum.N8 }},
+                new List<Card> { new Card() { Rank = RankEnum.N5 }, new Card() { Rank = RankEnum.N6 }, new Card() { Rank = RankEnum.N7 }, new Card() { Rank = RankEnum.N8 }, new Card() { Rank = RankEnum.N9 }},
+                new List<Card> { new Card() { Rank = RankEnum.N6 }, new Card() { Rank = RankEnum.N7 }, new Card() { Rank = RankEnum.N8 }, new Card() { Rank = RankEnum.N9 }, new Card() { Rank = RankEnum.N10 }},
+                new List<Card> { new Card() { Rank = RankEnum.N7 }, new Card() { Rank = RankEnum.N8 }, new Card() { Rank = RankEnum.N9 }, new Card() { Rank = RankEnum.N10 }, new Card() { Rank = RankEnum.J } },
+                new List<Card> { new Card() { Rank = RankEnum.N8 }, new Card() { Rank = RankEnum.N9 }, new Card() { Rank = RankEnum.N10 }, new Card() { Rank = RankEnum.J }, new Card() { Rank = RankEnum.Q } },
+                new List<Card> { new Card() { Rank = RankEnum.N9 }, new Card() { Rank = RankEnum.N10 }, new Card() { Rank = RankEnum.J }, new Card() { Rank = RankEnum.Q }, new Card() { Rank = RankEnum.K } },
+                new List<Card> { new Card() { Rank = RankEnum.N10 }, new Card() { Rank = RankEnum.J }, new Card() { Rank = RankEnum.Q }, new Card() { Rank = RankEnum.K }, new Card() { Rank = RankEnum.A }}
+            };
 
-            //var possibleStraights = new List<List<Card>>()
-            //{
-            //    new List<Card> { new Card() { rank = "2" }, new Card() { rank = "3" }, new Card() { rank = "4" }, new Card() { rank = "5" }, new Card() { rank = "6" }},
-            //    new List<Card> { new Card() { rank = "3" }, new Card() { rank = "4" }, new Card() { rank = "5" }, new Card() { rank = "6" }, new Card() { rank = "7" }},
-            //    new List<Card> { new Card() { rank = "4" }, new Card() { rank = "5" }, new Card() { rank = "6" }, new Card() { rank = "7" }, new Card() { rank = "8" }},
-            //    new List<Card> { new Card() { rank = "5" }, new Card() { rank = "6" }, new Card() { rank = "7" }, new Card() { rank = "8" }, new Card() { rank = "9" }},
-            //    new List<Card> { new Card() { rank = "6" }, new Card() { rank = "7" }, new Card() { rank = "8" }, new Card() { rank = "9" }, new Card() { rank = "10" }},
-            //    new List<Card> { new Card() { rank = "7" }, new Card() { rank = "8" }, new Card() { rank = "9" }, new Card() { rank = "10" }, new Card() { rank = "J" }, },
-            //    new List<Card> { new Card() { rank = "8" }, new Card() { rank = "9" }, new Card() { rank = "10" }, new Card() { rank = "J" }, new Card() { rank = "Q" }, },
-            //    new List<Card> { new Card() { rank = "9" }, new Card() { rank = "10" }, new Card() { rank = "J" }, new Card() { rank = "Q" }, new Card() { rank = "K" }, },
-            //    new List<Card> { new Card() { rank = "10" }, new Card() { rank = "J" }, new Card() { rank = "Q" }, new Card() { rank = "K" }, new Card() { rank = "A" }},
-            //};
             if (deck.Count < 5)
             {
                 return false;
             }
 
-            //if (deck.Count == 5)
-            //{
-            //    foreach (var possibleStraight in possibleStraights)
-            //    {
-            //        if (deck.Select(c=>c.Rank).SequenceEqual(possibleStraight.Select(c=>c.Rank)))
-            //        {
-            //            return true;    // found straight!
-            //        }
-            //    }
-            //}
+            if (deck.Count == 5)
+            {
+                foreach (var possibleStraight in possibleStraights)
+                {
+                    if (deck.Select(c=>c.Rank).SequenceEqual(possibleStraight.Select(c=>c.Rank)))
+                    {
+                        return true;     //found straight!
+                    }
+                }
+            }
 
             if (deck.Count == 6)
             {

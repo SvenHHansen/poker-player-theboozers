@@ -84,6 +84,7 @@
     <Compile Include="RankEnum.cs" />
     <Compile Include="SuitEnum.cs" />
     <Compile Include="ReadData.cs" />
+    <Compile Include="Bet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

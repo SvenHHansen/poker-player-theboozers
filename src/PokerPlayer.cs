@@ -17,7 +17,7 @@ namespace Nancy.Simple
 
             if(GetActualCards(gameStateSerialized).Count() < 6)
             {
-                return gameStateSerialized.players.Select(x=>x.bet).Max();
+                return gameStateSerialized.current_buy_in;
             }
             else
             {

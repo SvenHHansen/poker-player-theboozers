@@ -7,7 +7,8 @@ namespace Nancy.Simple
 		public static readonly string VERSION = "Default C# folding player";
 
 		public static int BetRequest(JObject gameState)
-		{           
+		{
+			//ReadData.GameState(gameState);
 			return 1000;
             //Comment
 		}

@@ -80,6 +80,7 @@
     <Compile Include="HoleCard.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="CommunityCard.cs" />
+    <Compile Include="ReadData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

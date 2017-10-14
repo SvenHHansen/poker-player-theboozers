@@ -5,32 +5,22 @@ namespace Nancy.Simple
 {
     	public class Card
 	{
-        [Obsolete]
-        public Card()
-        {
-
-        }
 
         public Card(CommunityCard communityCard)
         {
-            rank = communityCard.rank;
-            suit = communityCard.suit;
-            Rank = GetRankEnum(rank);
-            Suit = GetSuitEnum(suit);
+            Rank = GetRankEnum(communityCard.rank);
+            Suit = GetSuitEnum(communityCard.suit);
         }
 
         public Card(HoleCard holdCard)
         {
-            rank = holdCard.rank;
-            suit = holdCard.suit;
-
-            Rank = GetRankEnum(rank);
-            Suit = GetSuitEnum(suit);     
+            Rank = GetRankEnum(holdCard.rank);
+            Suit = GetSuitEnum(holdCard.suit);     
         }
 
-        public SuitEnum GetSuitEnum(string rank)
+        public SuitEnum GetSuitEnum(string suit)
         {
-            switch(rank)
+            switch(suit)
             {
                 case "clubs": return SuitEnum.Clubs;
                 case "diamonds": return SuitEnum.Diamonds;
@@ -41,9 +31,9 @@ namespace Nancy.Simple
             return default(SuitEnum);
         }
 
-        public RankEnum GetRankEnum(string suit)
+        public RankEnum GetRankEnum(string rank)
         {
-            switch (suit)
+            switch (rank)
             {
                 case "2": return RankEnum.N2;
                 case "3": return RankEnum.N3;
@@ -61,12 +51,7 @@ namespace Nancy.Simple
             }
 
             return default(RankEnum);
-        }
-
-        [Obsolete]
-        public string rank { get; set; }
-        [Obsolete]
-        public string suit { get; set; }
+        }        
 
         public RankEnum Rank { get; set; }
 		public SuitEnum Suit { get; set; }

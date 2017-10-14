@@ -36,33 +36,35 @@ namespace Nancy.Simple
 
         public static bool IsStraight(IList<Card> deck)
         {
-            var possibleStraights = new List<List<Card>>()
-            {
-                new List<Card> { new Card() { rank = "2" }, new Card() { rank = "3" }, new Card() { rank = "4" }, new Card() { rank = "5" }, new Card() { rank = "6" }},
-                new List<Card> { new Card() { rank = "3" }, new Card() { rank = "4" }, new Card() { rank = "5" }, new Card() { rank = "6" }, new Card() { rank = "7" }},
-                new List<Card> { new Card() { rank = "4" }, new Card() { rank = "5" }, new Card() { rank = "6" }, new Card() { rank = "7" }, new Card() { rank = "8" }},
-                new List<Card> { new Card() { rank = "5" }, new Card() { rank = "6" }, new Card() { rank = "7" }, new Card() { rank = "8" }, new Card() { rank = "9" }},
-                new List<Card> { new Card() { rank = "6" }, new Card() { rank = "7" }, new Card() { rank = "8" }, new Card() { rank = "9" }, new Card() { rank = "10" }},
-                new List<Card> { new Card() { rank = "7" }, new Card() { rank = "8" }, new Card() { rank = "9" }, new Card() { rank = "10" }, new Card() { rank = "J" }, },
-                new List<Card> { new Card() { rank = "8" }, new Card() { rank = "9" }, new Card() { rank = "10" }, new Card() { rank = "J" }, new Card() { rank = "Q" }, },
-                new List<Card> { new Card() { rank = "9" }, new Card() { rank = "10" }, new Card() { rank = "J" }, new Card() { rank = "Q" }, new Card() { rank = "K" }, },
-                new List<Card> { new Card() { rank = "10" }, new Card() { rank = "J" }, new Card() { rank = "Q" }, new Card() { rank = "K" }, new Card() { rank = "A" }},
-            };
+            return false;
+
+            //var possibleStraights = new List<List<Card>>()
+            //{
+            //    new List<Card> { new Card() { rank = "2" }, new Card() { rank = "3" }, new Card() { rank = "4" }, new Card() { rank = "5" }, new Card() { rank = "6" }},
+            //    new List<Card> { new Card() { rank = "3" }, new Card() { rank = "4" }, new Card() { rank = "5" }, new Card() { rank = "6" }, new Card() { rank = "7" }},
+            //    new List<Card> { new Card() { rank = "4" }, new Card() { rank = "5" }, new Card() { rank = "6" }, new Card() { rank = "7" }, new Card() { rank = "8" }},
+            //    new List<Card> { new Card() { rank = "5" }, new Card() { rank = "6" }, new Card() { rank = "7" }, new Card() { rank = "8" }, new Card() { rank = "9" }},
+            //    new List<Card> { new Card() { rank = "6" }, new Card() { rank = "7" }, new Card() { rank = "8" }, new Card() { rank = "9" }, new Card() { rank = "10" }},
+            //    new List<Card> { new Card() { rank = "7" }, new Card() { rank = "8" }, new Card() { rank = "9" }, new Card() { rank = "10" }, new Card() { rank = "J" }, },
+            //    new List<Card> { new Card() { rank = "8" }, new Card() { rank = "9" }, new Card() { rank = "10" }, new Card() { rank = "J" }, new Card() { rank = "Q" }, },
+            //    new List<Card> { new Card() { rank = "9" }, new Card() { rank = "10" }, new Card() { rank = "J" }, new Card() { rank = "Q" }, new Card() { rank = "K" }, },
+            //    new List<Card> { new Card() { rank = "10" }, new Card() { rank = "J" }, new Card() { rank = "Q" }, new Card() { rank = "K" }, new Card() { rank = "A" }},
+            //};
             if (deck.Count < 5)
             {
                 return false;
             }
 
-            if (deck.Count == 5)
-            {
-                foreach (var possibleStraight in possibleStraights)
-                {
-                    if (deck.Select(c=>c.rank).SequenceEqual(possibleStraight.Select(c=>c.rank)))
-                    {
-                        return true;    // found straight!
-                    }
-                }
-            }
+            //if (deck.Count == 5)
+            //{
+            //    foreach (var possibleStraight in possibleStraights)
+            //    {
+            //        if (deck.Select(c=>c.Rank).SequenceEqual(possibleStraight.Select(c=>c.Rank)))
+            //        {
+            //            return true;    // found straight!
+            //        }
+            //    }
+            //}
 
             if (deck.Count == 6)
             {
@@ -91,7 +93,7 @@ namespace Nancy.Simple
 
             if(deck.Count()>=4)
             {
-                var deckPairs = deck.GroupBy(d => d.suit);
+                var deckPairs = deck.GroupBy(d => d.Suit);
 
                 foreach (var deckPair in deckPairs)
                 {

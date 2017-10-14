@@ -11,7 +11,7 @@ namespace Nancy.Simple
 
 		public static int BetRequest(JObject gameState)
 		{
-
+            System.Console.Write(gameState);
             return 1000;
             System.Console.Write(gameState);
 			GameState gameStateSerialized = ReadData.GameState(gameState);

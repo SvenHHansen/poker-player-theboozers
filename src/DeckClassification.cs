@@ -44,7 +44,22 @@ namespace Nancy.Simple
 
         public bool IsTwoPair(IList<Card> deck)
         {
-            return false;
+            int foundPairs = 0;
+
+            if(deck.Count()>=4)
+            {
+                var deckPairs = deck.GroupBy(d => d.suit);
+
+                foreach (var deckPair in deckPairs)
+                {
+                    if(deckPair.Count()>=2)
+                    {
+                        foundPairs++;
+                    }
+                }
+            }
+
+            return foundPairs>=2;
         }
 
         public bool IsOnePair(IList<Card> deck)

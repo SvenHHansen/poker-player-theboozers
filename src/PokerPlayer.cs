@@ -14,8 +14,15 @@ namespace Nancy.Simple
             var currentPlayer = Player.GetCurrentPlayer(gameStateSerialized.players);
 
             var hand = DeckClassification.GetHand(GetActualCards(gameStateSerialized));
-            
-            return Bet.CalculateBet(hand, currentPlayer.stack);
+
+            if(GetActualCards(gameStateSerialized).Count() < 6)
+            {
+                return gameStateSerialized.players.Select(x=>x.bet).Max();
+            }
+            else
+            {
+                return Bet.CalculateBet(hand, currentPlayer.stack);
+            }
 		}
 
 		public static void ShowDown(JObject gameState)

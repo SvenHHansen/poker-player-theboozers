@@ -9,6 +9,7 @@ namespace Nancy.Simple
 		public static int BetRequest(JObject gameState)
 		{           
 			return 1000;
+            //Comment
 		}
 
 		public static void ShowDown(JObject gameState)

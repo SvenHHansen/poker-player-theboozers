@@ -26,8 +26,8 @@ namespace Nancy.Simple
         public static List<Card> GetActualCards(GameState gameState)
         {
             var currentPlayer = Player.GetCurrentPlayer(gameState.players);
-            List<CommunityCard> cardList = gameState.community_cards;
-            cardList.AddRange(currentPlayer.hole_cards);
+            List<Card> cardList = gameState.community_cards.Select(x=>new Card(x)).ToList();
+            cardList.AddRange(currentPlayer.hole_cards.Select(x=>new Card(x)));
             return new List<Card>();
         }
 	}

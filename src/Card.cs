@@ -27,39 +27,39 @@ namespace Nancy.Simple
             Suit = GetSuitEnum(suit);     
         }
 
-        public RankEnum GetRankEnum(string rank)
+        public SuitEnum GetSuitEnum(string rank)
         {
             switch(rank)
             {
-                case "clubs": return RankEnum.clubs;
-                case "diamonds": return RankEnum.diamonds;
-                case "hearts": return RankEnum.hearts;
-                case "spades": return RankEnum.spades;                    
-            }
-
-            return default(RankEnum);
-        }
-
-        public SuitEnum GetSuitEnum(string suit)
-        {
-            switch (suit)
-            {
-                case "2": return SuitEnum.N2;
-                case "3": return SuitEnum.N3;
-                case "4": return SuitEnum.N4;
-                case "5": return SuitEnum.N5;
-                case "6": return SuitEnum.N6;
-                case "7": return SuitEnum.N7;
-                case "8": return SuitEnum.N8;
-                case "9": return SuitEnum.N9;
-                case "10": return SuitEnum.N10;
-                case "J": return SuitEnum.J;
-                case "Q": return SuitEnum.Q;
-                case "A": return SuitEnum.A;
-                case "K": return SuitEnum.K;
+                case "clubs": return SuitEnum.Clubs;
+                case "diamonds": return SuitEnum.Diamonds;
+                case "hearts": return SuitEnum.Hearts;
+                case "spades": return SuitEnum.Spades;                    
             }
 
             return default(SuitEnum);
+        }
+
+        public RankEnum GetRankEnum(string suit)
+        {
+            switch (suit)
+            {
+                case "2": return RankEnum.N2;
+                case "3": return RankEnum.N3;
+                case "4": return RankEnum.N4;
+                case "5": return RankEnum.N5;
+                case "6": return RankEnum.N6;
+                case "7": return RankEnum.N7;
+                case "8": return RankEnum.N8;
+                case "9": return RankEnum.N9;
+                case "10": return RankEnum.N10;
+                case "J": return RankEnum.J;
+                case "Q": return RankEnum.Q;
+                case "A": return RankEnum.A;
+                case "K": return RankEnum.K;
+            }
+
+            return default(RankEnum);
         }
 
         [Obsolete]

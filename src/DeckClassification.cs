@@ -9,12 +9,14 @@ namespace Nancy.Simple
     {
         public static bool IsRoyalFlush(IList<Card> deck)
         {
-			return deck.Min(card => card.rank) == "10" && IsStraightFlush(deck);
+			bool isRoyalFlush = deck.Min(card => card.rank) == "10" && IsStraightFlush(deck);
+			return false;
         }
 
         public static bool IsStraightFlush(IList<Card> deck)
         {
-            return IsFlush(deck) && IsStraight(deck);
+			bool isStraightFlush = IsFlush(deck) && IsStraight(deck);
+			return false;
         }
 
         public static bool IsFourOfAKind(IList<Card> deck)

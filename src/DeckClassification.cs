@@ -9,7 +9,7 @@ namespace Nancy.Simple
     {
         public static bool IsRoyalFlush(IList<Card> deck)
         {
-			bool isRoyalFlush = deck.Min(card => card.rank) == "10" && IsStraightFlush(deck);
+			bool isRoyalFlush = deck.Min(card => card.Rank) == RankEnum.N10 && IsStraightFlush(deck);
 			return false;
         }
 
@@ -21,7 +21,7 @@ namespace Nancy.Simple
 
         public static bool IsFourOfAKind(IList<Card> deck)
         {
-			return deck.GroupBy(card => card.rank).Any(group => group.Count() == 4);
+			return deck.GroupBy(card => card.Rank).Any(group => group.Count() == 4);
         }
 
         public static bool IsFullHouse(IList<Card> deck)
@@ -31,7 +31,7 @@ namespace Nancy.Simple
 
         public static bool IsFlush(IList<Card> deck)
         {
-			return deck.GroupBy(card => card.suit).Count() == 1;
+			return deck.GroupBy(card => card.Suit).Count() == 1;
         }
 
         public static bool IsStraight(IList<Card> deck)
@@ -82,7 +82,7 @@ namespace Nancy.Simple
 
         public static bool IsThreeOfAKind(IList<Card> deck)
         {
-			return deck.GroupBy(card => card.rank).Any(group => group.Count() == 3);
+			return deck.GroupBy(card => card.Rank).Any(group => group.Count() == 3);
         }
 
         public static bool IsTwoPair(IList<Card> deck)
@@ -107,7 +107,7 @@ namespace Nancy.Simple
 
         public static bool IsOnePair(IList<Card> deck)
         {
-            return deck.GroupBy(c => c.rank).Any(l => l.Count() == 2);
+            return deck.GroupBy(c => c.Rank).Any(l => l.Count() == 2);
         }
 
         public static bool IsHighestCard(IList<Card> deck)

@@ -5,34 +5,36 @@ using System.Text;
 
 namespace Nancy.Simple
 {
-    public class DeckClassification
+    public static class DeckClassification
     {
-        public bool IsRoyalFlush(IList<Card> deck)
+        public static bool IsRoyalFlush(IList<Card> deck)
         {
-            return false;
+			bool isRoyalFlush = deck.Min(card => card.Rank) == RankEnum.N10 && IsStraightFlush(deck);
+			return false;
         }
 
-        public bool IsStraightFlush(IList<Card> deck)
+        public static bool IsStraightFlush(IList<Card> deck)
         {
-            return false;
+			bool isStraightFlush = IsFlush(deck) && IsStraight(deck);
+			return false;
         }
 
-        public bool IsFourOfAKind(IList<Card> deck)
+        public static bool IsFourOfAKind(IList<Card> deck)
         {
-			return deck.GroupBy(card => card.rank).Any(group => group.Count() == 4);
+			return deck.GroupBy(card => card.Rank).Any(group => group.Count() == 4);
         }
 
-        public bool IsFullHouse(IList<Card> deck)
+        public static bool IsFullHouse(IList<Card> deck)
         {
 			return IsTwoPair(deck) && IsThreeOfAKind(deck);
         }
 
-        public bool IsFlush(IList<Card> deck)
+        public static bool IsFlush(IList<Card> deck)
         {
-			return deck.GroupBy(card => card.suit).Count() == 1;
+			return deck.GroupBy(card => card.Suit).Count() == 1;
         }
 
-        public bool IsStraight(IList<Card> deck)
+        public static bool IsStraight(IList<Card> deck)
         {
             var possibleStraights = new List<List<Card>>()
             {
@@ -78,12 +80,12 @@ namespace Nancy.Simple
             return false;
         }
 
-        public bool IsThreeOfAKind(IList<Card> deck)
+        public static bool IsThreeOfAKind(IList<Card> deck)
         {
-			return deck.GroupBy(card => card.rank).Any(group => group.Count() == 3);
+			return deck.GroupBy(card => card.Rank).Any(group => group.Count() == 3);
         }
 
-        public bool IsTwoPair(IList<Card> deck)
+        public static bool IsTwoPair(IList<Card> deck)
         {
             int foundPairs = 0;
 
@@ -103,17 +105,17 @@ namespace Nancy.Simple
             return foundPairs>=2;
         }
 
-        public bool IsOnePair(IList<Card> deck)
+        public static bool IsOnePair(IList<Card> deck)
         {
-            return deck.GroupBy(c => c.rank).Any(l => l.Count() == 2);
+            return deck.GroupBy(c => c.Rank).Any(l => l.Count() == 2);
         }
 
-        public bool IsHighestCard(IList<Card> deck)
+        public static bool IsHighestCard(IList<Card> deck)
         {
             return true;
         }
 
-        public HandEnum GetHand(IList<Card> deck)
+        public static HandEnum GetHand(IList<Card> deck)
         {
             var hand = HandEnum.HighCard;
 

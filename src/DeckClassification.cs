@@ -49,7 +49,7 @@ namespace Nancy.Simple
 
         public bool IsOnePair(IList<Card> deck)
         {
-            return false;
+            return deck.GroupBy(c => c.rank).Any(l => l.Count() == 2);
         }
 
         public bool IsHighestCard(IList<Card> deck)

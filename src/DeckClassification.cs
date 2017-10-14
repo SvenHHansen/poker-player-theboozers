@@ -5,62 +5,96 @@ using System.Text;
 
 namespace Nancy.Simple
 {
-    public class DeckStub
-    {
-
-    }
-
     public class DeckClassification
     {
-        public bool IsRoyalFlush(DeckStub deck)
-        {
-
-            return false;
-        }
-
-        public bool IsStraightFlush(DeckStub deck)
+        public bool IsRoyalFlush(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsFourOfAKind(DeckStub deck)
+        public bool IsStraightFlush(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsFullHouse(DeckStub deck)
+        public bool IsFourOfAKind(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsFlush(DeckStub deck)
+        public bool IsFullHouse(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsStraight(DeckStub deck)
+        public bool IsFlush(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsThreeOfAKind(DeckStub deck)
+        public bool IsStraight(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsTwoPair(DeckStub deck)
+        public bool IsThreeOfAKind(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsOnePair(DeckStub deck)
+        public bool IsTwoPair(IList<Card> deck)
         {
             return false;
         }
 
-        public bool IsHighestCard(DeckStub deck)
+        public bool IsOnePair(IList<Card> deck)
+        {
+            return false;
+        }
+
+        public bool IsHighestCard(IList<Card> deck)
         {
             return true;
+        }
+
+        public HandEnum GetHand(IList<Card> deck)
+        {
+            var hand = HandEnum.HighCard;
+
+            if(IsRoyalFlush(deck))
+            {
+                hand = HandEnum.RoyalFlush;
+            }
+            else if (IsStraightFlush(deck))
+                {
+                hand = HandEnum.StraightFlush;
+}
+            else if(IsFourOfAKind(deck))
+                {
+             hand = HandEnum.FourOfAKind;}
+            else if(IsFullHouse(deck))
+                {
+            hand = HandEnum.FullHouse;}
+                        else if(IsFlush(deck))
+                {
+            hand = HandEnum.Flush;}
+                                    else if(IsStraight(deck))
+                {
+            hand = HandEnum.Straight;}
+            else if(IsThreeOfAKind(deck))
+                {
+            hand = HandEnum.ThreeOfAKind;}
+                        else if(IsTwoPair(deck))
+                {
+            hand = HandEnum.TwoPairs;}
+            else if(IsOnePair(deck))
+                {
+            hand = HandEnum.OnePair;}
+               else if(IsHighestCard(deck))
+                {
+            hand = HandEnum.HighCard;}
+
+            return hand;
         }
 
     }

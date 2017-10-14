@@ -70,6 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Card.cs" />
     <Compile Include="DeckClassification.cs" />
     <Compile Include="HandEnum.cs" />
     <Compile Include="HandProbabilities.cs" />

@@ -29,7 +29,7 @@ namespace Nancy.Simple
 
         public bool IsFlush(IList<Card> deck)
         {
-            return false;
+			return deck.GroupBy(card => card.suit).Count() == 1;
         }
 
         public bool IsStraight(IList<Card> deck)

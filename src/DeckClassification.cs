@@ -19,7 +19,7 @@ namespace Nancy.Simple
 
         public bool IsFourOfAKind(IList<Card> deck)
         {
-            return false;
+			return deck.GroupBy(card => card.rank).Any(group => group.Count() == 4);
         }
 
         public bool IsFullHouse(IList<Card> deck)
@@ -29,7 +29,7 @@ namespace Nancy.Simple
 
         public bool IsFlush(IList<Card> deck)
         {
-            return false;
+			return deck.GroupBy(card => card.suit).Count() == 1;
         }
 
         public bool IsStraight(IList<Card> deck)
